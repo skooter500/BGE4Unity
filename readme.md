@@ -4,7 +4,7 @@
 
 The new home of my Game AI Framework code for Unity3D
 - [Course Notes](https://onedrive.live.com/redir?resid=AB603D769EDBF24E!210396&authkey=!AAb-R5vP9R9enWo&ithint=folder%2cpptx)
-- [Labs](Course/Labs.md)
+- [Labs](Course/labs.md)
 
 ## Videos & Talks
 [![Video](http://img.youtube.com/vi/eJR77aGLOHw/0.jpg)](http://www.youtube.com/watch?v=eJR77aGLOHw)
