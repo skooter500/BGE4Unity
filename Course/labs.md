@@ -1,5 +1,24 @@
 # Game Engines 2 (Game AI) Labs 
 
+## Lab 2
+In this lab we will be making:
+- A forward Euler integrator function
+- A seek steering behaviour
+
+To complete the lab:
+
+- Clone the repo: https://github.com/skooter500/BGE4Unity and open the project in Unity3D
+- When you run the project you will notice that I have added a FPS camera controller to the camera. This allows you to move the camera around using keyboard and mouse look.
+- Take the time to study the code in FPSController to see how it works.
+- Create a GameComponent called Boid in the namespace BGE and attach it to the cube. This is kinda fiddley as Unity doesnt really understand namespaces. Figure out how to do this
+- Make a public field of type ```Vector3``` called ```seekTarget``` 
+- Give it a sensible initiav value in the constructor
+- Write a method ```Vector3 Seek(Vector3 target)```. This method should return a force to move the game object towards the target
+- Write code in the Update method that integrates the force. It should call Seek to generate the force.
+- Create another GameComponent called TargetUpdate and attach it to the camera
+- This GameComponent should set the seek target of the Boid script to be a point 20 units in front of the camera.
+
+
 ## Lab 1
 
 This is *Question 1* from the Christmas exam. Attempt to code a solution to this in Unity3D.
