@@ -17,7 +17,9 @@ To complete the lab:
 - Write code in the Update method that integrates the force. It should call Seek to generate the force.
 - Create another GameComponent called TargetUpdate and attach it to the camera
 - This GameComponent should set the seek target of the Boid script to be a point 20 units in front of the camera.
+- Finally! See if you can implement a behaviour that will flee from the player if the distance is < 20
 
+Don't forget and log onto Webcourses and do the MCQ
 
 ## Lab 1
 
