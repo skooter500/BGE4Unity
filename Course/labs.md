@@ -1,5 +1,30 @@
 # Game Engines 2 (Game AI) Labs 
 
+## Lab 3
+Clone or pull the repo from last week to get the Pursue behaviour. This week I want you to add two additional behaviours, arrive and follow path. 
+
+- Implement the *arrive* behaviour as per the class last week. Check out the notes. You will probably need to implement a decelleration tweaker or play with the slowing distance to make it work properly.
+- To implement *follow path*, create a Path class with the following methods:
+	- NextWaypoint - Returns the waypoint the boid should be going towards
+	- IsLast - Returns a boolean flag to indicate whether the next waypoint is the last waypoint
+	- AdvanceToNext - Moves to the next waypoint. If the looped flag is true, then you should go back to the first waypoint when you reach the end, otherwise only go to the next waypoint if you are not already at the end.
+	- looped - A boolean flag that indicates whether the path is looped or not
+- Give the Boid an instance of a Path and write the follow path behaviour such that:
+	- You should seek from waypoint to waypoint, but arrive at the last one
+	- Unless the path is looped in which case you should always seek the next waypoint
+
+```
+public Vector3 Calculate()
+{
+    if (calculationMethod == CalculationMethods.WeightedTruncatedRunningSumWithPrioritisation)
+    {
+        return CalculateWeightedPrioritised();
+    }
+
+    return Vector3.zero;
+}
+```
+
 ## Lab 2
 In this lab we will be making:
 - A forward Euler integrator function
