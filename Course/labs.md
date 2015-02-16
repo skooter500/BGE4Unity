@@ -1,5 +1,19 @@
 # Game Engines 2 (Game AI) Labs 
 
+## Lab 4
+In this lab you can come up with a strategy to better set out the waypoints for the path following behaviour we developed last week. I think the best way to do this would be:
+
+- Create a "root" GameObject to hold the waypoints. 
+- Add a load of child GameObjects to hold the waypoints. These should probably be added in the order in which you want your boid to traverse them. 
+- When you create a GameObject, you can assign it an icon and a colour and some text. Try this to make your path visible in the editor.
+- Create a public GameObject on the Boid to hold the path object. 
+- Make a path as above and drop it onto the path.
+- In the Start method of the Boid, get all the child GameObjects of the path GameObject and add their positions to the Path object.
+
+If you take the time to do this, it will make path following in your assigmment much easier to use.
+
+
+
 ## Lab 3
 Clone or pull the repo from last week to get the Pursue behaviour. This week I want you to add two additional behaviours, arrive and follow path. 
 
