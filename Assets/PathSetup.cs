@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using BGE;
 
 public class PathSetup : MonoBehaviour {
 
@@ -12,7 +13,7 @@ public class PathSetup : MonoBehaviour {
         path.AddWaypoint(new Vector3(50, 0, 70));
         path.AddWaypoint(new Vector3(0, 0, 20));
 
-        gameObject.renderer.material.color = Color.cyan;
+        gameObject.GetComponent<Renderer>().material.color = Color.cyan;
 	
 	}
 	

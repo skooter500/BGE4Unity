@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using BGE;
 
 public class TargetUpdater : MonoBehaviour {
 
@@ -15,7 +16,7 @@ public class TargetUpdater : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             Boid boid = cube.GetComponent<Boid>();
-            boid.seekTarget = transform.position + transform.forward * 20.0f;
+            boid.seekTargetPos = transform.position + transform.forward * 20.0f;
         }
 	}
 }

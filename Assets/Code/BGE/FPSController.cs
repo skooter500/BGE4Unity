@@ -7,14 +7,16 @@ namespace BGE
 {
     public class FPSController : MonoBehaviour
     {
-
+        GameObject ovrCamera;
         float speed = 10.0f;
-        
+
         // Use this for initialization
         void Start()
         {
-            Screen.showCursor = false;
-            Screen.lockCursor = true;
+            Cursor.visible = false;
+            Cursor.lockState = UnityEngine.CursorLockMode.Locked;
+
+            ovrCamera = null; // GameObject.FindGameObjectWithTag("ovrplayer");
         }
 
         void Yaw(float angle)
@@ -46,12 +48,26 @@ namespace BGE
 
         void Walk(float units)
         {
-            transform.position += transform.forward * units;
+            if (ovrCamera != null)
+            {
+                transform.position += ovrCamera.transform.forward * units;
+            }
+            else
+            {
+                transform.position += transform.forward * units;
+            }
         }
 
         void Strafe(float units)
         {
-            transform.position += transform.right * units;
+            if (ovrCamera != null)
+            {
+                transform.position += ovrCamera.transform.right * units;
+            }
+            else
+            {
+                transform.position += transform.right * units;
+            }
         }
 
         // Update is called once per frame
@@ -60,7 +76,7 @@ namespace BGE
             float mouseX, mouseY;
             float speed = this.speed;
 
-            float runAxis = 0; // = Input.GetAxis("Run Axis");
+            float runAxis = 0; // Input.GetAxis("Run Axis");
 
             if (Input.GetKey(KeyCode.LeftShift) || runAxis != 0)
             {
@@ -74,12 +90,12 @@ namespace BGE
 
             if (Input.GetKey(KeyCode.S))
             {
-                Walk(- Time.deltaTime * speed);
+                Walk(-Time.deltaTime * speed);
             }
 
             if (Input.GetKey(KeyCode.A))
             {
-                Strafe(- Time.deltaTime * speed);
+                Strafe(-Time.deltaTime * speed);
             }
 
             if (Input.GetKey(KeyCode.D))
@@ -88,37 +104,40 @@ namespace BGE
             }
             if (Input.GetKey(KeyCode.Q))
             {
-                Roll(- Time.deltaTime * speed);
+                Roll(-Time.deltaTime * speed);
             }
             if (Input.GetKey(KeyCode.E))
             {
                 Roll(Time.deltaTime * speed);
             }
+            //BoidManager.PrintVector("OVR Forward: ", ovrCamera.transform.forward);
 
             mouseX = Input.GetAxis("Mouse X");
             mouseY = Input.GetAxis("Mouse Y");
 
-            /*GameObject ovrplayer = GameObject.FindGameObjectWithTag("ovrcamera");
-            if (ovrplayer != null)
-            {
-                ovrplayer.transform.position = transform.position;
-            }
-            */
+
             Yaw(mouseX);
-            //float contYaw = Input.GetAxis("Yaw Axis");
-            //float contPitch = Input.GetAxis("Pitch Axis");
-            //Yaw(contYaw);
+            float contYaw = 0; // Input.GetAxis("Yaw Axis");
+            float contPitch = 0; // Input.GetAxis("Pitch Axis");
+            Yaw(contYaw);
 
             // If in Rift mode, dont pitch
-            Pitch(-mouseY);
-            //Pitch(contPitch);
+            if (ovrCamera == null)
+            {
+                Pitch(-mouseY);
+                Pitch(contPitch);
+            }
 
-            /*
-             float contWalk = Input.GetAxis("Walk Axis");
-            float contStrafe = Input.GetAxis("Strafe Axis");
-            Walk(-contWalk * speed * Time.deltaTime);
-            Strafe(contStrafe * speed * Time.deltaTime);
-             */
+            float contWalk = 0; // Input.GetAxis("Walk Axis");
+            float contStrafe = 0; // Input.GetAxis("Strafe Axis");
+            if (Mathf.Abs(contWalk) > 0.1f)
+            {
+                Walk(-contWalk * speed * Time.deltaTime);
+            }
+            if (Mathf.Abs(contStrafe) > 0.1f)
+            {
+                Strafe(contStrafe * speed * Time.deltaTime);
+            }
         }
     }
 }
