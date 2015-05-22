@@ -1,5 +1,25 @@
 # Games Engines 2 Assignment
 
+Results
+
+C11710699	65
+C11443118	55
+C10363227	19
+C09299858	44
+c11347281	46
+C11733511	84
+C11343056	68
+C11405038	68
+D11124846	67
+C11442692	66
+D12124126	54
+D11124850	50
+C11401898	50
+C10315971	42
+C11743571	75
+D05110596	60
+C07716567	10
+
 The goal of this assignment is to recreate a classic space battle using the game AI techniques you are learning on the course. Your assignment should tell a story and as much as possible, the behaviours of the ships should be programmed rather than using any built in stuff in Unity. If you dont like sci-fi, then a nature simulation is also cool. Try and avoid Star Wars because it’s been done to death, but if you really want to do Star Wars, you can. I suggest you pick classic sci-fi such as any of the following:
 
 - 2001 A Space Odyssey
